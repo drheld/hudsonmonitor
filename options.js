@@ -133,9 +133,18 @@ function save() {
     } else {
         delete localStorage.green;
     }
-    
+
+    chrome.permissions.request({
+      origins:[localStorage.url]
+    }, function (granted) {
+      if (granted) {
+        chrome.extension.getBackgroundPage()["init"]();
+      } else {
+        markDirty();
+      }
+    });
+
     init();
-    chrome.extension.getBackgroundPage()["init"]();
 }
 
 function markDirty() {

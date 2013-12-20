@@ -18,8 +18,7 @@
 		"page": "background.html"
 	},
 	"options_page": "options.html",
-	"permissions": [
-		"tabs",
+	"optional_permissions": [
 		"http://*/",
 		"https://*/"
 	]
